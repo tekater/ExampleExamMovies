@@ -1,0 +1,33 @@
+﻿@page
+@model ExampleExam.Pages.IndexModel
+
+<h2>Список фильмов</h2>
+
+@if (Model.Movies.Any())
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Режиссёр</th>
+            <th>Рейтинг</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model.Movies)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Director</td>
+                <td>@movie.Rating</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+else
+{
+<p>Фильмы не найдены.</p>
+}
+
+<a asp-page="/Create">Добавить новый фильм</a>
